@@ -7,6 +7,7 @@ import HomeContainer from './HomeContainer';
 import AboutContainer from './AboutContainer';
 import ProjectContainer from './ProjectContainer';
 import ErrorPage from '../components/ErrorPage';
+import Logo from '../assets/images/logo.png';
 
 class MainContainer extends Component {
     constructor(props) {
@@ -47,13 +48,17 @@ class MainContainer extends Component {
                     <NavBar />
                     <Switch>
                         <Route exact path='/' render={() => <HomeContainer skills={this.state.skills} principles={this.state.principles} />} />
-                        <Route path='/about' component={AboutContainer.render} />
-                        <Route path='/projects' component={ProjectContainer.render} />
+                        <Route path='/about' component={AboutContainer} />
+                        <Route path='/projects' component={ProjectContainer} />
                         <Route component={ErrorPage.render} />
                     </Switch>
                 </React.Fragment>
             </Router>
             </main>
+            <footer>
+                <img id="logo" src={Logo} alt="logo"/>
+                <div id="social"><a href="https://github.com/roosap" target="_blank"><i class="fab fa-github"></i></a> <a href = "mailto: roosa.paivansalo@gmail.com"><i class="far fa-envelope"></i></a></div>
+            </footer>
         </div>
          );
     }

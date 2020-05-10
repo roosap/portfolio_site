@@ -7,9 +7,6 @@ const HomeContainer = ({skills, principles}) => {
     return (  
         <div>
             <section>
-                <ProjectContainer />
-            </section>
-            <section>
                 <Intro skills={skills} principles={principles} />
             </section>
         </div>
