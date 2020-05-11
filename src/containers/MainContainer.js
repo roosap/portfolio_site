@@ -41,20 +41,19 @@ class MainContainer extends Component {
     render() { 
         return ( 
             <div>
-            <Header />
-            <main>
             <Router>
                 <React.Fragment>
-                    <NavBar />
+                <Header />
+                    <main>
                     <Switch>
                         <Route exact path='/' render={() => <HomeContainer skills={this.state.skills} principles={this.state.principles} />} />
-                        <Route path='/about' component={AboutContainer} />
+        <Route path='/about' render={() => <AboutContainer skills={this.state.skills} principles={this.state.principles} /> } />
                         <Route path='/projects' component={ProjectContainer} />
-                        <Route component={ErrorPage.render} />
+                        <Route component={ErrorPage} />
                     </Switch>
+                    </main>
                 </React.Fragment>
             </Router>
-            </main>
             <footer>
                 <img id="logo" src={Logo} alt="logo"/>
                 <div id="social"><a href="https://github.com/roosap" target="_blank"><i class="fab fa-github"></i></a> <a href = "mailto: roosa.paivansalo@gmail.com"><i class="far fa-envelope"></i></a></div>

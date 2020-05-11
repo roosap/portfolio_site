@@ -18,10 +18,10 @@ const Intro = ({skills, principles}) => {
             </h4>
             <br />
                 <h6>
-                    Hey, I'm <span id="white">Roosa</span>!<br /><br /> I'm an Edinburgh-based software developer with a background in sociology and communications.<br /><br />
+                    Hey, I'm <span className="white">Roosa</span>!<br /><br /> I'm an Edinburgh-based software developer with a background in sociology and communications.<br /><br />
                     I am passionate about social inclusion and using technology to promote accessible solutions for all.<br /><br />
                     I am a curious and creative personality, always eager to learn more.<br /><br />
-                    <Link to='/projects'>View some of my recent projects <span id="white">here.</span></Link><br /><br />
+                    View some of my recent projects <span className="white"><Link to='/projects'>here.</Link></span><br /><br />
                     Get in touch!<br /><br />
                 </h6>
 
