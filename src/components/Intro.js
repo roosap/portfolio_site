@@ -14,7 +14,7 @@ const Intro = () => {
                         View some of my recent projects <span className="white"><Link to='/projects'>here.</Link></span><br /><br />
                         Get in touch!
                     </h6>
-                        <a href="https://github.com/roosap" target="_blank"><i className="fab fa-github"></i></a> <a href = "mailto: roosa.paivansalo@gmail.com"><i className="far fa-envelope"></i></a>
+                        {/* <a href="https://github.com/roosap" target="_blank"><i className="fab fa-github"></i></a> <a href = "mailto: roosa.paivansalo@gmail.com"><i className="far fa-envelope"></i></a> */}
             </section>
         </div>
     );
