@@ -7,7 +7,7 @@ const HomeContainer = ({skills, principles}) => {
     return (  
         <div>
             <section>
-                <Intro skills={skills} principles={principles} />
+                Hey
             </section>
         </div>
     );

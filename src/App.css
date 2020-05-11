@@ -10,9 +10,6 @@ main {
   font-size: 2.5em;
   color: white;
   justify-content: center;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 3.5em;
 }
 
 li {
@@ -26,6 +23,11 @@ a {
 
 a:hover {
   opacity: 0.7;
+}
+
+h6 {
+  color: dimgrey;
+  font-weight: lighter;
 }
 
 header {
@@ -58,14 +60,25 @@ header > h4 {
   display: inline-block;
 }
 
-h6 {
-  color: dimgrey;
-  font-weight: lighter;
+#skills {
+  padding: 0em 0.5em;
+  margin-top: 1em;
+  border: 2px solid white;
+  display: inline-flex;
 }
 
-#skills {
-  padding: 1em 1em;
-  border: 2px solid white;
+#skills-wrapper > ul > li {
+  font-size: 0.75em;
+}
+
+#about-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 3.5em;
+}
+
+#about-wrapper > img {
+  margin-top: 1.8em;
 }
 
 footer {

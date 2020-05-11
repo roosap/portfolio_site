@@ -15,8 +15,7 @@ class MainContainer extends Component {
         this.state = { 
             skills: [
                 'JavaScript',
-                'React',
-                'React Native',
+                'React + React Native',
                 'Vue.js',
                 'Node.js',
                 'Express.js',
@@ -25,8 +24,7 @@ class MainContainer extends Component {
                 'PostgreSQL',
                 'NoSQL',
                 'HTML5',
-                'CSS',
-                'Canvas'
+                'CSS'
             ],
             principles: [
                 'Git',
@@ -46,8 +44,8 @@ class MainContainer extends Component {
                 <Header />
                     <main>
                     <Switch>
-                        <Route exact path='/' render={() => <HomeContainer skills={this.state.skills} principles={this.state.principles} />} />
-        <Route path='/about' render={() => <AboutContainer skills={this.state.skills} principles={this.state.principles} /> } />
+                        <Route exact path='/' component={HomeContainer} />
+                        <Route path='/about' render={() => <AboutContainer skills={this.state.skills} principles={this.state.principles} /> } />
                         <Route path='/projects' component={ProjectContainer} />
                         <Route component={ErrorPage} />
                     </Switch>
