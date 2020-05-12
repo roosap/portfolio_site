@@ -82,7 +82,7 @@ const Canvas = () => {
                     onMouseUp={handleMouseUp}>
                         <h6>Sorry, your browser doesn't support this element!</h6>
                 </canvas>
-                <a ref={downloadLinkRef} download='myDrawing.png' onClick={createDownload}>Download Image</a>
+                <a ref={downloadLinkRef} id="download-button" download='myDrawing.png' onClick={createDownload}>Download Image</a>
         </div>
      );
 }

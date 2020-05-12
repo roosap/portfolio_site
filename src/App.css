@@ -86,6 +86,14 @@ header > h4 {
   margin-top: 2em;
 }
 
+#download-button {
+  font-size: 0.5em;
+  background-color: white;
+  color: dimgrey;
+  padding: 0.5em 0.5em;
+  border-radius: 1em;
+}
+
 footer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
