@@ -6,7 +6,7 @@ const HomeContainer = () => {
 
     return (  
         <div>
-            <Canvas text="Hello"/>
+            <Canvas />
         </div>
     );
 }

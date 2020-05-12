@@ -7,7 +7,7 @@ main {
   margin: 1em 1em;
   padding: 1.2em 1em;
   background-color: #f8bfb0;
-  font-size: 2.5em;
+  font-size: 2em;
   color: white;
   justify-content: center;
 }
@@ -39,7 +39,7 @@ header {
   margin: 1em 1.3em;
   padding: 1.2em 5em;
   background-color: #b8dcd2;
-  font-size: 2em;
+  font-size: 1.7em;
   justify-content: center;
 }
 
@@ -50,7 +50,6 @@ header > h2 {
 header > h4 {
   color: dimgrey;
   font-weight: lighter;
-  padding-top: 0.3em;
 }
 
 .white {
@@ -108,20 +107,19 @@ footer > #social {
 }
 
 @media only screen and (max-width: 1000px) {
+
   header {
     font-size: 1em;
-    width: 100%;
-    font-size: 1em;
-    width: 100%;
-    margin-left: 0;
+    width: window.innerWidth;
+    margin-left: 1;
   }
 
   main {
     display: block;
-    font-size: 1em;
-    width: 100%;
-    margin: auto;
-    padding: auto;
+    font-size: 1.5em;
+    width: window.innerWidth;
+    margin-left: 1;
+    padding: 1 0;
   }
 
   img {
@@ -129,6 +127,7 @@ footer > #social {
   }
 
   footer {
+    padding-top: 0.5em;
     font-size: 0.5em;
   }
 }
