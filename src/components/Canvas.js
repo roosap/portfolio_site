@@ -6,24 +6,20 @@ class Canvas extends Component {
     componentDidMount() {
         const canvas = this.refs.canvas
         const ctx = canvas.getContext("2d")
-        const img = this.refs.image
         const start = null
+        const drops = [
+            { x: 180, y: 0 },
+            { x: 280, y: 50 },
+            { x: 350, y: 120 },
+            { x: 470, y: 40 },
+            { x: 300, y: 170 },
+            { x: 400, y: 290 },
+            { x: 500, y: 0 },
+            { x: 160, y: 220 }
+        ]
 
       const requestAnimationFrame = (anim) => {
-        createRaindrops()
     }
-
-      const createRaindrops = () => {
-        const drops = []
-        drops.push({ x: 180, y: 0 });
-        drops.push({ x: 280, y: 50 });
-        drops.push({ x: 350, y: 120 });
-        drops.push({ x: 470, y: 40 });
-        drops.push({ x: 300, y: 170 });
-        drops.push({ x: 400, y: 290 });
-        drops.push({ x: 500, y: 0 });
-        drops.push({ x: 160, y: 220 });
-      }
 
       const rain = (posX, posY) => {
             ctx.beginPath();
@@ -39,14 +35,24 @@ class Canvas extends Component {
       const anim = (timestamp) => {
         if (!start) start = timestamp;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        this.draw()
+        draw()
         if ((timestamp - start) < 2000) {
             start = null;
             requestAnimationFrame(anim)
           }
       }
 
+      const draw = () => {
+        drops.forEach((drop) => {
+            rain(drop.x, drop.y);
+            drop.y += 1;
+            if (drop.y > canvas.height) {
+            drop.y = 0;
+            }
+        }
+        )}
     }
+
 
     render() { 
         return ( 
