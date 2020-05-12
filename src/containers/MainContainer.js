@@ -54,7 +54,7 @@ class MainContainer extends Component {
             </Router>
             <footer>
                 <img id="logo" src={Logo} alt="logo"/>
-                <div id="social"><a href="https://github.com/roosap" target="_blank"><i class="fab fa-github"></i></a> <a href = "mailto: roosa.paivansalo@gmail.com"><i class="far fa-envelope"></i></a></div>
+                <div id="social"><a href="https://github.com/roosap" target="_blank"><i className="fab fa-github"></i></a> <a href = "mailto: roosa.paivansalo@gmail.com"><i className="far fa-envelope"></i></a></div>
             </footer>
         </div>
          );

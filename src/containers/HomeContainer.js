@@ -1,14 +1,12 @@
 import React from 'react';
+import Canvas from '../components/Canvas';
 
-import Intro from '../components/Intro';
-import ProjectContainer from './ProjectContainer';
+const HomeContainer = () => {
 
-const HomeContainer = ({skills, principles}) => {
+
     return (  
         <div>
-            <section>
-                Hey
-            </section>
+            <Canvas text="Hello"/>
         </div>
     );
 }
