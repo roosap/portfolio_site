@@ -30,6 +30,11 @@ h6 {
   font-weight: lighter;
 }
 
+canvas {
+  border: 3px solid white;
+  border-radius: 5%;
+}
+
 header {
   margin: 1em 1.3em;
   padding: 1.2em 5em;
