@@ -79,7 +79,11 @@ const Canvas = () => {
                     height={window.innerHeight}
                     onMouseDown={handleMouseDown}
                     onMouseMove={handleMouseMove}
-                    onMouseUp={handleMouseUp}>
+                    onMouseUp={handleMouseUp}
+                    onTouchStart={handleMouseDown}
+                    onTouchMove={handleMouseMove}
+                    onTouchEnd={handleMouseUp}
+                    >
                         <h6>Sorry, your browser doesn't support this element!</h6>
                 </canvas><br />
                 <a ref={downloadLinkRef} id="download-button" download='myDrawing.png' onClick={createDownload}>Download Image</a>

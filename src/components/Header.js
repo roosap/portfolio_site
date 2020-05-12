@@ -7,7 +7,7 @@ const Header = () => {
         <header>
             <h2>Roosa Päivänsalo</h2>
             <h4>Software Developer</h4>
-            <div><NavBar /></div>
+            <NavBar />
         </header>
      );
 }

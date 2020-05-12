@@ -12,8 +12,15 @@ main {
   justify-content: center;
 }
 
+ul {
+  padding: 0 0;
+  margin: 0 0;
+}
+
 li {
   list-style: none;
+  padding: 0 0;
+  margin: 0 0;
 }
 
 a {
@@ -59,9 +66,9 @@ header > h4 {
 
 #menu > li {
   font-size: 0.7em;
-  padding-right: 1em;
-  padding-top: 1em;
-  display: inline-block;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  display: inline-flex;
 }
 
 #skills {
