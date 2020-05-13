@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Header from '../components/Header';
-import NavBar from '../components/NavBar';
 import HomeContainer from './HomeContainer';
 import AboutContainer from './AboutContainer';
 import ProjectContainer from './ProjectContainer';

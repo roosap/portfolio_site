@@ -73,38 +73,37 @@ const Canvas = () => {
 
         const canvas = canvasRef.current;
         const rect = canvas.getBoundingClientRect();
-        const touch = e.touches[0];
+        const touch = e.touches[0] || e.changedTouches[0];;
 
         setX(touch.clientX - rect.left);
         setY(touch.clientY - rect.top);
         setIsDrawing(true);
-        console.log("hello from touchstart")
+        console.log("hello from touchstart", x, y)
     }
 
     const handleTouchMove = (e) => {
         e.preventDefault()
-        console.log("hello from touchmove")
 
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
         const rect = canvas.getBoundingClientRect();
-        const touch = e.touches[0];
+        const touch = e.touches[0] || e.changedTouches[0];;
 
         if (isDrawing === true) {
             drawLine(ctx, x, y, touch.clientX - rect.left, touch.clientY - rect.top);
             setX(touch.clientX - rect.left);
             setY(touch.clientY - rect.top);
         }
+        console.log("hello from touchmove", x, y)
     }
 
     const handleTouchEnd = (e) => {
         e.preventDefault()
-        console.log("hello from touchend")
 
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
         const rect = canvas.getBoundingClientRect();
-        const touch = e.touches[0];
+        const touch = e.touches[0] || e.changedTouches[0];;
 
         if (isDrawing === true) {
             drawLine(ctx, x, y, touch.clientX - rect.left, touch.clientY - rect.top);
@@ -112,14 +111,17 @@ const Canvas = () => {
             setY(0);
             setIsDrawing(false);
         }
+
+        console.log("hello from touchend", x, y)
     }
 
     useEffect(() => {
+        
         if (!!canvasRef.current) {
             console.log('registering event listenetrN');
             canvasRef.current.addEventListener("touchstart", handleTouchStart, { passive: false });
-            canvasRef.current.addEventListener("touchend", handleTouchEnd, { passive: false });
             canvasRef.current.addEventListener("touchmove", handleTouchMove, { passive: false });
+            canvasRef.current.addEventListener("touchend", handleTouchEnd, { passive: false });
         }
     }, [canvasRef]);
 

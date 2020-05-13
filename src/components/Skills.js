@@ -4,9 +4,13 @@ const Skills = ({skills, principles}) => {
 
     const skillsListItems = skills.map((value, index) => {
         if (index < skills.length - 1) {
-            return <li key={index}>{value} //</li>
+            return (
+            <li key={index}>{value} //</li>
+            )
         } else {
-            return <li key={index}>{value}.</li>
+            return (
+            <li key={index}>{value}.</li>
+            )
         }
         })
     
