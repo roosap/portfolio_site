@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
 const Canvas = () => {
@@ -7,7 +7,6 @@ const Canvas = () => {
     const [isDrawing, setIsDrawing] = useState(false);
     const [x, setX] = useState(0);
     const [y, setY] = useState(0);
-
 
     const handleMouseDown = (e) => {
         const canvas = canvasRef.current;
@@ -67,6 +66,63 @@ const Canvas = () => {
         downloadLink.href = downloadURL;
     }
 
+    // mobile-friendly versions of drawing functions
+
+    const handleTouchStart = (e) => {
+        e.preventDefault()
+
+        const canvas = canvasRef.current;
+        const rect = canvas.getBoundingClientRect();
+        const touch = e.touches[0];
+
+        setX(touch.clientX - rect.left);
+        setY(touch.clientY - rect.top);
+        setIsDrawing(true);
+        console.log("hello from touchstart")
+    }
+
+    const handleTouchMove = (e) => {
+        e.preventDefault()
+        console.log("hello from touchmove")
+
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        const rect = canvas.getBoundingClientRect();
+        const touch = e.touches[0];
+
+        if (isDrawing === true) {
+            drawLine(ctx, x, y, touch.clientX - rect.left, touch.clientY - rect.top);
+            setX(touch.clientX - rect.left);
+            setY(touch.clientY - rect.top);
+        }
+    }
+
+    const handleTouchEnd = (e) => {
+        e.preventDefault()
+        console.log("hello from touchend")
+
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        const rect = canvas.getBoundingClientRect();
+        const touch = e.touches[0];
+
+        if (isDrawing === true) {
+            drawLine(ctx, x, y, touch.clientX - rect.left, touch.clientY - rect.top);
+            setX(0);
+            setY(0);
+            setIsDrawing(false);
+        }
+    }
+
+    useEffect(() => {
+        if (!!canvasRef.current) {
+            console.log('registering event listenetrN');
+            canvasRef.current.addEventListener("touchstart", handleTouchStart, { passive: false });
+            canvasRef.current.addEventListener("touchend", handleTouchEnd, { passive: false });
+            canvasRef.current.addEventListener("touchmove", handleTouchMove, { passive: false });
+        }
+    }, [canvasRef]);
+
     return ( 
         <div>
             <h4>Nice to meet you!</h4>
@@ -80,11 +136,8 @@ const Canvas = () => {
                     onMouseDown={handleMouseDown}
                     onMouseMove={handleMouseMove}
                     onMouseUp={handleMouseUp}
-                    onTouchStart={handleMouseDown}
-                    onTouchMove={handleMouseMove}
-                    onTouchEnd={handleMouseUp}
                     >
-                        <h6>Sorry, your browser doesn't support this element!</h6>
+                    <h6>Sorry, your browser doesn't support this element!</h6>
                 </canvas><br />
                 <a ref={downloadLinkRef} id="download-button" download='myDrawing.png' onClick={createDownload}>Download Image</a>
         </div>
