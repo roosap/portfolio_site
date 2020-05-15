@@ -40,13 +40,14 @@ h6 {
 canvas {
   border: 3px solid white;
   border-radius: 5%;
+  cursor: url('../src/assets/images/pencil_cursor.png'), auto;	
 }
 
 header {
   margin: 1em 1.3em;
   padding: 1.2em 5em;
   background-color: #b8dcd2;
-  font-size: 1.7em;
+  font-size: 1.6em;
   justify-content: center;
 }
 
