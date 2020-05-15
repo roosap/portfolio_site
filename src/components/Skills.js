@@ -28,6 +28,7 @@ const Skills = ({skills, principles}) => {
                     <ul>
                         {skillsListItems}
                     </ul>
+                    <br />
                     <ul>
                         {principlesListItems}
                     </ul>

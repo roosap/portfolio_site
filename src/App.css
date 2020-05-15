@@ -32,6 +32,10 @@ a:hover {
   opacity: 0.7;
 }
 
+button:hover {
+  opacity: 0.7;
+}
+
 h6 {
   color: dimgrey;
   font-weight: lighter;
@@ -73,8 +77,8 @@ header > h4 {
 }
 
 #skills {
-  padding-left: 0;
-  padding-right: 0.9em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   font-size: 0.8em;
   margin-top: 1em;
   border: 2px solid white;
@@ -101,6 +105,7 @@ header > h4 {
   padding: 0.5em 0.5em;
   border-radius: 1em;
   margin: 0 0.5em;
+  cursor: pointer;
 }
 
 #clear-canvas {
