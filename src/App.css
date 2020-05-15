@@ -94,12 +94,18 @@ header > h4 {
   margin-top: 2em;
 }
 
-#download-button {
+#download-button, #clear-canvas {
   font-size: 0.5em;
   background-color: white;
   color: dimgrey;
   padding: 0.5em 0.5em;
   border-radius: 1em;
+  margin: 0 0.5em;
+}
+
+#clear-canvas {
+  text-align: right;
+  border: none;
 }
 
 footer {

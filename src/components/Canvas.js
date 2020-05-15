@@ -77,6 +77,12 @@ const Canvas = () => {
         downloadLink.href = downloadURL;
     }
 
+    const clearCanvas = () => {
+        const canvas = canvasRef.current;
+
+        canvas.width = canvas.width;
+    }
+
 
     // mobile-friendly versions of drawing functions
 
@@ -127,7 +133,7 @@ const Canvas = () => {
         }
     }, [canvasRef]);
 
-    
+
     return ( 
         <div>
                 <canvas
@@ -140,6 +146,7 @@ const Canvas = () => {
                     >
                     <h6>Sorry, your browser doesn't support this element!</h6>
                 </canvas><br />
+                <button id="clear-canvas" onClick={clearCanvas}>Clear Canvas</button>
                 <a ref={downloadLinkRef} id="download-button" download='myDrawing.png' onClick={createDownload}>Download Image</a>
         </div>
      );
