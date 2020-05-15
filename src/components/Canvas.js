@@ -4,13 +4,22 @@ import {Link} from 'react-router-dom';
 const Canvas = () => {
     const canvasRef = useRef(null);
     const downloadLinkRef = useRef(null);
-    const [isDrawing, setIsDrawing] = useState(false);
-    const [x, setX] = useState(0);
-    const [y, setY] = useState(0);
+
+    // Below to imitate React Hooks that couldn't be used due to Canvas and Chrome restrictions when supporting touch events
+   
+    let x = 0;
+    let y = 0;
+    let isDrawing = false;
+
+    const setIsDrawing = (v) => { isDrawing = v; };
+    const setX = (xx) => { x = xx; };
+    const setY = (yy) => { y = yy };
+
 
     const handleMouseDown = (e) => {
         const canvas = canvasRef.current;
         const rect = canvas.getBoundingClientRect();
+
         setX(e.clientX - rect.left);
         setY(e.clientY - rect.top);
         setIsDrawing(true);
@@ -20,6 +29,7 @@ const Canvas = () => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
         const rect = canvas.getBoundingClientRect();
+
         if (isDrawing === true) {
             drawLine(ctx, x, y, e.clientX - rect.left, e.clientY - rect.top);
             setX(e.clientX - rect.left);
@@ -31,6 +41,7 @@ const Canvas = () => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
         const rect = canvas.getBoundingClientRect();
+
         if (isDrawing === true) {
             drawLine(ctx, x, y, e.clientX - rect.left, e.clientY - rect.top);
             setX(0);
@@ -67,11 +78,8 @@ const Canvas = () => {
     }
 
 
-
-
     // mobile-friendly versions of drawing functions
 
-    
 
     const handleTouchStart = (e) => {
         e.preventDefault()
@@ -80,16 +88,9 @@ const Canvas = () => {
         const rect = canvas.getBoundingClientRect();
         const touch = e.touches[0];
 
-        // const mouseEvent = new MouseEvent("mousedown", {
-        //     clientX: touch.clientX - rect.left,
-        //     clientY: touch.clientY - rect.top
-        // });
-        // canvas.dispatchEvent(mouseEvent);
-
         setX(touch.clientX - rect.left);
         setY(touch.clientY - rect.top);
         setIsDrawing(true);
-        console.log("hello from touchstart", x, y)
     }
 
     const handleTouchMove = (e) => {
@@ -100,37 +101,21 @@ const Canvas = () => {
         const rect = canvas.getBoundingClientRect();
         const touch = e.touches[0];
 
-        // const mouseEvent = new MouseEvent("mousemove", {
-        //     clientX: touch.clientX - rect.left,
-        //     clientY: touch.clientY - rect.top
-        // });
-        // canvas.dispatchEvent(mouseEvent);
-
-
         if (isDrawing === true) {
             drawLine(ctx, x, y, touch.clientX - rect.left, touch.clientY - rect.top);
             setX(touch.clientX - rect.left);
             setY(touch.clientY - rect.top);
         }
-        console.log("hello from touchmove", x, y)
     }
 
     const handleTouchEnd = (e) => {
         e.preventDefault()
 
-        const canvas = canvasRef.current;
-        const ctx = canvas.getContext('2d');
-        const rect = canvas.getBoundingClientRect();
-        const touch = e.touches[0];
-
         if (isDrawing === true) {
-            drawLine(ctx, x, y, touch.clientX - rect.left, touch.clientY - rect.top);
             setX(0);
             setY(0);
             setIsDrawing(false);
         }
-
-        console.log("hello from touchend", x, y)
     }
 
     useEffect(() => {
@@ -162,5 +147,6 @@ const Canvas = () => {
         </div>
      );
 }
- 
+
+
 export default Canvas;
